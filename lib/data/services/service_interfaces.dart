@@ -37,4 +37,5 @@ abstract class ISignalRService {
   Stream<Bid> onBidUpdate();
   Stream<AuctionStatusUpdate> onAuctionStatusUpdate();
   Stream<NewAuctionNotification> onNewAuctionNotification();
+  Stream<OutbidNotification> onOutbidNotification();
 }

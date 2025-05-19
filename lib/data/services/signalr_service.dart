@@ -86,4 +86,19 @@ class SignalRService implements ISignalRService {
     });
     return controller.stream;
   }
+
+  @override
+  Stream<OutbidNotification> onOutbidNotification() {
+    final controller = StreamController<OutbidNotification>();
+    _hubConnection?.on('ReceiveOutbidNotification', (args) {
+      if (args != null && args.length >= 3) {
+        controller.add(OutbidNotification(
+          auctionId: args[0] as int,
+          auctionTitle: args[1] as String,
+          newBidAmount: (args[2] as num).toDouble(),
+        ));
+      }
+    });
+    return controller.stream;
+  }
 }

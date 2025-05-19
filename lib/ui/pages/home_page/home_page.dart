@@ -27,7 +27,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     _homeCubit = HomeCubit(
       auctionService: ServiceLocator().auctionService,
       signalRService: ServiceLocator().signalRService,
-      user: context.read<AuthProvider>().currentUser
+      user: context.read<AuthProvider>().currentUser,
+      onOutbidNotification: (notification) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Your auction bid "${notification.auctionTitle}" was exceeded. New amount \$${notification.newBidAmount}'),
+            backgroundColor: Colors.orange,
+          ),
+        );
+      },
     );
     for (var controller in _scrollControllers) {
       controller.addListener(() {

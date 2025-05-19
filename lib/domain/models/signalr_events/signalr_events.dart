@@ -17,3 +17,12 @@ class NewAuctionNotification with _$NewAuctionNotification {
     required String title,
   }) = _NewAuctionNotification;
 }
+
+@freezed
+class OutbidNotification with _$OutbidNotification {
+  const factory OutbidNotification({
+    required int auctionId,
+    required String auctionTitle,
+    required double newBidAmount,
+  }) = _OutbidNotification;
+}

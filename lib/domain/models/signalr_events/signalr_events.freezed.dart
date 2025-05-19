@@ -293,3 +293,163 @@ abstract class _NewAuctionNotification implements NewAuctionNotification {
   _$$NewAuctionNotificationImplCopyWith<_$NewAuctionNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$OutbidNotification {
+  int get auctionId => throw _privateConstructorUsedError;
+  String get auctionTitle => throw _privateConstructorUsedError;
+  double get newBidAmount => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $OutbidNotificationCopyWith<OutbidNotification> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OutbidNotificationCopyWith<$Res> {
+  factory $OutbidNotificationCopyWith(
+          OutbidNotification value, $Res Function(OutbidNotification) then) =
+      _$OutbidNotificationCopyWithImpl<$Res, OutbidNotification>;
+  @useResult
+  $Res call({int auctionId, String auctionTitle, double newBidAmount});
+}
+
+/// @nodoc
+class _$OutbidNotificationCopyWithImpl<$Res, $Val extends OutbidNotification>
+    implements $OutbidNotificationCopyWith<$Res> {
+  _$OutbidNotificationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? auctionId = null,
+    Object? auctionTitle = null,
+    Object? newBidAmount = null,
+  }) {
+    return _then(_value.copyWith(
+      auctionId: null == auctionId
+          ? _value.auctionId
+          : auctionId // ignore: cast_nullable_to_non_nullable
+              as int,
+      auctionTitle: null == auctionTitle
+          ? _value.auctionTitle
+          : auctionTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      newBidAmount: null == newBidAmount
+          ? _value.newBidAmount
+          : newBidAmount // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OutbidNotificationImplCopyWith<$Res>
+    implements $OutbidNotificationCopyWith<$Res> {
+  factory _$$OutbidNotificationImplCopyWith(_$OutbidNotificationImpl value,
+          $Res Function(_$OutbidNotificationImpl) then) =
+      __$$OutbidNotificationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int auctionId, String auctionTitle, double newBidAmount});
+}
+
+/// @nodoc
+class __$$OutbidNotificationImplCopyWithImpl<$Res>
+    extends _$OutbidNotificationCopyWithImpl<$Res, _$OutbidNotificationImpl>
+    implements _$$OutbidNotificationImplCopyWith<$Res> {
+  __$$OutbidNotificationImplCopyWithImpl(_$OutbidNotificationImpl _value,
+      $Res Function(_$OutbidNotificationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? auctionId = null,
+    Object? auctionTitle = null,
+    Object? newBidAmount = null,
+  }) {
+    return _then(_$OutbidNotificationImpl(
+      auctionId: null == auctionId
+          ? _value.auctionId
+          : auctionId // ignore: cast_nullable_to_non_nullable
+              as int,
+      auctionTitle: null == auctionTitle
+          ? _value.auctionTitle
+          : auctionTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      newBidAmount: null == newBidAmount
+          ? _value.newBidAmount
+          : newBidAmount // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OutbidNotificationImpl implements _OutbidNotification {
+  const _$OutbidNotificationImpl(
+      {required this.auctionId,
+      required this.auctionTitle,
+      required this.newBidAmount});
+
+  @override
+  final int auctionId;
+  @override
+  final String auctionTitle;
+  @override
+  final double newBidAmount;
+
+  @override
+  String toString() {
+    return 'OutbidNotification(auctionId: $auctionId, auctionTitle: $auctionTitle, newBidAmount: $newBidAmount)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OutbidNotificationImpl &&
+            (identical(other.auctionId, auctionId) ||
+                other.auctionId == auctionId) &&
+            (identical(other.auctionTitle, auctionTitle) ||
+                other.auctionTitle == auctionTitle) &&
+            (identical(other.newBidAmount, newBidAmount) ||
+                other.newBidAmount == newBidAmount));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, auctionId, auctionTitle, newBidAmount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OutbidNotificationImplCopyWith<_$OutbidNotificationImpl> get copyWith =>
+      __$$OutbidNotificationImplCopyWithImpl<_$OutbidNotificationImpl>(
+          this, _$identity);
+}
+
+abstract class _OutbidNotification implements OutbidNotification {
+  const factory _OutbidNotification(
+      {required final int auctionId,
+      required final String auctionTitle,
+      required final double newBidAmount}) = _$OutbidNotificationImpl;
+
+  @override
+  int get auctionId;
+  @override
+  String get auctionTitle;
+  @override
+  double get newBidAmount;
+  @override
+  @JsonKey(ignore: true)
+  _$$OutbidNotificationImplCopyWith<_$OutbidNotificationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

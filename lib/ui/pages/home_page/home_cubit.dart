@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:auction_app/domain/models/signalr_events/signalr_events.dart';
 import 'package:auction_app/domain/models/user/user.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,13 +28,15 @@ class HomeState with _$HomeState {
 class HomeCubit extends Cubit<HomeState> {
   final IAuctionService auctionService;
   final ISignalRService signalRService;
+  final Function(OutbidNotification notification) onOutbidNotification;
   late User user;
   static const int _pageSize = 10;
 
   HomeCubit({
     required this.auctionService,
     required this.signalRService,
-    required this.user
+    required this.user,
+    required this.onOutbidNotification
   }) : super(const HomeState.initial()) {
     _initSignalR();
     loadAuctions();
@@ -48,6 +51,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.error(e.response?.data['message'] ?? 'Failed to fetch new auction'));
       }
     });
+    signalRService.onOutbidNotification().listen(onOutbidNotification);
     signalRService.onAuctionStatusUpdate().listen((update) {
       _updateAuctionStatus(update.auctionId, update.status);
     });
